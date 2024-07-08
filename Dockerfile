@@ -1,4 +1,4 @@
-FROM python:3.10.8
+FROM python:3.10
 
 WORKDIR /app
 
@@ -8,9 +8,9 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-COPY api-flask-rest-firebase-adminsdk-6f0w1-319d793f16.json .
+COPY api-flask-secret.json .
 
-ENV FIREBASE_AUTH=api-flask-rest-firebase-adminsdk-6f0w1-319d793f16.json
+ENV FIREBASE_AUTH=api-flask-secret.json
 ENV JWT_SECRET_KEY=flask-secret-jwt
 
 EXPOSE 5000
