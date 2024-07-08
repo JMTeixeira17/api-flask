@@ -45,22 +45,24 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
 
 ## Uso
 ### Rutas
-#### Registrar Usuario
+### Registrar Usuario
 
-`POST register`
+`POST api/register`
 
-  ```json
-  {
+    curl -X POST http://127.0.0.1:5000/api/register -H "Content-Type: application/json" -d '{"username": "john_doe", "email": "john@example.com", "password_hash": "your_password"}'
+
+#### Cuerpo
+```  
+{
     "username": "john_doe",
     "email": "john@example.com",
     "password_hash": "your_password"
-  }
-
-  ```curl -X POST http://127.0.0.1:5000/api/register -H "Content-Type: application/json" -d '{"username": "john_doe", "email": "john@example.com", "password_hash": "your_password"}'
+}
+```
 
 #### Respuesta
 
-```json
+```  
 {
   "id": "generated_user_id",
   "username": "john_doe",
@@ -68,3 +70,89 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
   "password_hash": "hashed_password",
   "created_at": "2023-07-07T12:34:56.789Z"
 }
+```
+
+### Iniciar Sesión
+
+`POST api/login`
+
+    curl -X POST http://127.0.0.1:5000/api/login -H "Content-Type: application/json" -d '{"username": "john_doe", "password_hash": "your_password"}'
+
+#### Cuerpo
+
+```
+{
+  "username": "john_doe",
+  "password_hash": "your_password"
+}
+```
+
+#### Respuesta
+```
+{
+  "access_token": "your_jwt_token"
+}
+```
+
+### Obtener Usuario
+
+#### Encabezado 
+
+    Authorization: Bearer your_jwt_token
+
+`GET api/user`
+
+    curl -X GET http://127.0.0.1:5000/api/user -H "Authorization: Bearer your_jwt_token"
+
+#### Respuesta
+```
+{
+  "id": "user_id",
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password_hash": "hashed_password",
+  "created_at": "2023-07-07T12:34:56.789Z"
+}
+```
+
+### Actualizar Usuario
+
+#### Encabezado 
+
+    Authorization: Bearer your_jwt_token
+
+`PUT api/user`
+
+    curl -X PUT http://127.0.0.1:5000/api/user -H "Authorization: Bearer your_jwt_token" -H "Content-Type: application/json" -d '{"username": "new_username", "email": "new_email@example.com"}'
+
+
+#### Cuerpo
+```
+{
+  "username": "new_username",
+  "email": "new_email@example.com"
+}
+```
+#### Respuesta
+```
+{
+  "message": "User updated"
+}
+```
+
+### Eliminar Usuario
+
+#### Encabezado 
+
+    Authorization: Bearer your_jwt_token
+
+`PUT api/user`
+
+    curl -X DELETE http://127.0.0.1:5000/api/user -H "Authorization: Bearer your_jwt_token"
+
+#### Respuesta
+```
+{
+  "message": "User deleted"
+}
+```
