@@ -58,7 +58,9 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
 
   ```curl -X POST http://127.0.0.1:5000/api/register -H "Content-Type: application/json" -d '{"username": "john_doe", "email": "john@example.com", "password_hash": "your_password"}'```
 
+#### Respuesta
 
+```json
 {
   "id": "generated_user_id",
   "username": "john_doe",
