@@ -12,12 +12,12 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
     - [Obtener Usuario](#obtener-usuario)
     - [Actualizar Usuario](#actualizar-usuario)
     - [Eliminar Usuario](#eliminar-usuario)
-
+- [Docker](#docker)
 
 ## Instalación
 ### Requisitos Previos
 
-- Python 3.10.8
+- Python 3.10
 
 - Se necesita crear una base de datos en Firestore.  Puedes crearla acá: https://console.firebase.google.com. Una vez creado el proyecto y la base de datos, descargamos las credenciales en formato json. 
 
@@ -156,3 +156,13 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
   "message": "User deleted"
 }
 ```
+
+
+## Docker
+Clonar el repositorio:
+
+    docker pull chema19/flask-api:latest
+
+### Ejecución
+
+    docker run -p 5000:5000 chema19/flask-api:latest
