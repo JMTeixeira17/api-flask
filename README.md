@@ -37,5 +37,31 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
 4. **Configurar las variables de entorno**
     - FIREBASE_AUTH=path/to/your/firebase-credentials.json
     - JWT_SECRET_KEY=your_jwt_secret_key
-5. **Ejecutar la aplicación**
+5. **Ejecutar los tests**
+    - pytest
+6. **Ejecutar la aplicación**
     - flask run
+
+
+## Uso
+### Rutas
+#### Registrar Usuario
+
+`POST register`
+
+  ```json
+  {
+    "username": "john_doe",
+    "email": "john@example.com",
+    "password_hash": "your_password"
+  }
+
+  curl -X POST http://127.0.0.1:5000/api/register -H "Content-Type: application/json" -d '{"username": "john_doe", "email": "john@example.com", "password_hash": "your_password"}'
+
+{
+  "id": "generated_user_id",
+  "username": "john_doe",
+  "email": "john@example.com",
+  "password_hash": "hashed_password",
+  "created_at": "2023-07-07T12:34:56.789Z"
+}```
