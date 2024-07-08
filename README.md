@@ -29,13 +29,13 @@ Esta es una API RESTful creada con Flask. La API permite la gestión de usuarios
 
 1. **Clonar el repositorio**
 2. **Crear un entorno virtual**
-    python -m venv venv
-    venv\Scripts\activate  # En Windows
-    source venv/bin/activate  # En macOS/Linux
+    - python -m venv venv
+    - venv\Scripts\activate  # En Windows
+    - source venv/bin/activate  # En macOS/Linux
 3. **Instalar las dependencias**
-    pip install -r requirements.txt
+    - pip install -r requirements.txt
 4. **Configurar las variables de entorno**
-    FIREBASE_AUTH=path/to/your/firebase-credentials.json
-    JWT_SECRET_KEY=your_jwt_secret_key
+    - FIREBASE_AUTH=path/to/your/firebase-credentials.json
+    - JWT_SECRET_KEY=your_jwt_secret_key
 5. **Ejecutar la aplicación**
-    flask run
+    - flask run
