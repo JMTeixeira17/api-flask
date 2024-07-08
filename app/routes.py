@@ -74,7 +74,6 @@ def update_user():
     except Exception as e:
         return jsonify({'Error': f'Invalid JSON data: {e}'}), 400
 
-    # Validate the fields if they exist
     if 'username' in data:
         if len(data['username']) < 4 or len(data['username']) > 20:
             return jsonify({'error': 'Username must be between 4 and 20 characters'}), 400
